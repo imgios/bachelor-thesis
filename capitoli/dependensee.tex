@@ -7,10 +7,10 @@
     \includegraphics[width=.5\columnwidth]{capitoli/figure/logo_dependensee}
 \end{center}
 
-In questo capitolo verr\`{a} introdotto \textit{Dependensee}, lo strumento sviluppato per la visualizzazione di insiemi minimali di \acrfull{rfds} mediante l'implementazione della metafora visiva descritta nel paragrafo \ref{section:visual_rep_metaphore}. Tale strumento facilita la visualizzazione delle \acrfull{rfds} minimali e rappresenta diverse loro caratteristiche, facilitando l'utente nell'analisi visiva degli insiemi composti da queste.
+In questo capitolo verr\`{a} introdotto \textit{Dependensee}, lo strumento sviluppato per la visualizzazione di insiemi minimali di \acrlong{rfds} mediante l'implementazione della metafora visiva descritta nel paragrafo \ref{section:visual_rep_metaphore}. Tale strumento facilita la visualizzazione delle \acrlong{rfds} minimali e rappresenta diverse loro caratteristiche, facilitando l'utente nell'analisi visiva degli insiemi composti da queste.
 
 \section{Introduzione} %\label{1sec:scopo}
-Dependensee \`{e} una web application che mira a rappresentare visivamente grandi insiemi minimali di \acrfull{rfds}, per permettere all'utente che lo utilizza una rapida e semplice analisi visiva di questi insiemi. Ci\`{o} avviene attraverso ad una metafora intuitiva, descritta nel capitolo \ref{section:visual_rep_metaphore}, la quale fornisce una panoramica generale sull'insieme, esplicitando dettagli e caratteristiche delle \acrfull{rfds} che formano l'insieme. Per quanto concerne lo sviluppo, sono state utilizzate diverse tecnologie:
+Dependensee \`{e} una web application che mira a rappresentare visivamente grandi insiemi minimali di \acrlong{rfds}, per permettere all'utente che lo utilizza una rapida e semplice analisi visiva di questi insiemi. Ci\`{o} avviene attraverso ad una metafora intuitiva, descritta nel capitolo \ref{section:visual_rep_metaphore}, la quale fornisce una panoramica generale sull'insieme, esplicitando dettagli e caratteristiche delle \acrlong{rfds} che formano l'insieme. Per quanto concerne lo sviluppo, sono state utilizzate diverse tecnologie:
 \begin{itemize}
     \item TypeScript,
     \item Angular,
@@ -22,8 +22,13 @@ Angular, evoluzione di AngularJS, \`{e} una piattaforma open source per lo svilu
 Ionic \`{e} una SDK\footnote{Un \textbf{Software Development Kit (SDK)} indica un insieme di strumenti per lo sviluppo e la documentazione di software.} open source completa per lo sviluppo di app ibride, sviluppata da Drifty. Essa fornisce strumenti e servizi per lo sviluppo di applicazioni desktop, mobile e Progressive Web Apps, basate sulle pratiche e tecnologie moderne di sviluppo web, utilizzando tecnologie come CSS, HTML5 e SASS. In particolare, possono essere sviluppate applicazioni mobile con le suddette tecnologie web ed \`{e} possibile, successivamente, distribuirle tramite Cordova o Capacitor sui vari App Store nativi.\par
 D3.js \`{e} una libreria sviluppata in JavaScript per creare visualizzazioni dinamiche ed interattive partendo da dati organizzati, visibili attraverso un comune browser. Per fare ci\`{o} si serve largamente degli standard web: SVG, HTML5 e CSS. Diversamente da molte altre librerie, essa permette un ottimo controllo e resa visiva sul risultato finale. D3.js, incorporata in una pagina web HTML, utilizza funzioni JavaScript prefatte per selezionare elementi del DOM, creare elementi SVG, aggiungergli uno stile grafico, oppure transizioni, effetti di movimento e/o tooltip. Questi oggetti possono essere personalizzati utilizzando il CSS. In questo modo grandi collezioni di dati possono essere facilmente convertiti in oggetti SVG usando semplici funzioni della libreria e cos\`{i} generare ricche rappresentazioni grafiche di numeri, testi, mappe e diagrammi. I dati utilizzati possono essere in diversi formati, i pi\`{u} comuni sono JSON e CSV, ma, se necessario, si possono scrivere funzioni per leggere dati in altri formati.
 
-\section{Funzionamento}
+\section{Tecnologie utilizzate}
+BlaBla.
 
+\section{Implementazione}
+BlaBla.
+
+\section{Funzionamento}
 L'utilizzo di Dependensee \`{e} molto semplice. Il deploy dell'applicazione pu\`{o} essere effettuato sia su server che in locale. Per effettuare il deploy in locale \`{e} necessario, come prerequisiti, avere Node.js, npm ed Ionic 4 sulla propria macchina. Successivamente, basta aprire la directory tramite bash e digitare il comando \texttt{ionic serve}, cos\`{i} da avviare un server in locale su tutte le interfacce di rete. Fatto ci\`{o}, baster\`{a} dirigersi all'indirizzo corrispondente al server avviato, in genere \texttt{http://localhost:8100}, per iniziare ad utilizzare Dependensee. Una volta aperto l'indirizzo nel browser, si presenter\`{a} un'interfaccia semplice ed immediata, come mostrato in Figura \ref{fig:dependensee_main_screen}, composta da:
 \begin{itemize}
     \item un input per selezione il dataset da analizzare in formato .txt,
@@ -60,3 +65,11 @@ dove le stringhe che precedono il simbolo \texttt{@} indicano gli attributi, i v
 \end{figure}
 % -- End Dataset Analyzed
 Una volta analizzato il dataset sar\`{a} possibile effettuare operazioni di zoom-in/out per visualizzare meglio il grafico e singole porzioni di esso, oppure sar\`{a} possibile analizzare un altro dataset cliccando sul bottone in alto.
+
+\section{Interpretazione dei risultati}
+Una volta analizzato un dato dataset, il tool proceder\`{a} alla creazione di un grafico colorato con le \acrlong{rfds} contenute nel dataset. Il grafico consiste in una matrice $n\times n$, dove $n$ \`{e} il numero di attributi. Gli attributi presenti sulle righe rappresentano quelle \acrshort{rfds} in cui appare l'attributo in questione sul lato sinistro, mentre gli attributi presenti sulle colonne rappresentano quelle \acrshort{rfds} in cui appare l'attributo in questione sul lato destro. La matrice \`{e} a sua volta composta da delle sotto-matrici, in cui gli elementi vengono rappresentati seguendo due metriche: cardinalit\`{a} del lato sinistro e threshold dell'attributo sul lato destro. Se ogni sotto-matrice viene vista come un piano cartesiano in due dimensioni, le ascisse rappresentano le thresholds del lato destro, mentre le ordinate rappresentano la cardinalit\`{a} del lato sinistro. I colori utilizzati per rappresentare gli elementi rappresentano la threshold dell'attributo sul lato sinistro e la threshold dell'attributo sul lato destro, rispettivamente il bordo ed il riempimento. Colori pi\`{u} intensi indicano thresholds pi\`{u} vicine o uguali a zero, mentre colori meno intensi indicano threshold pi\`{u} vicine o uguali al valore indicato in input. Se guardiamo il grafico della Figura \ref{fig:dependensee_dataset_analyzed} e consideriamo l'ultima riga e la prima colonna, questa sotto-matrice corrisponde alle \acrshort{rfds} aventi l'attributo \texttt{YEAR} sul lato sinistro e l'attributo \texttt{AUTHORS} sul lato destro. Se la analizziamo possiamo notare l'esistenza di \acrshort{rfds} con cardinalit\`{a} maggiore uguale a $3$, con thresholds sull'attributo \texttt{AUTHORS} comprese tra $0$ e $3$ (inclusi) e thresholds sull'attributo \texttt{YEAR} uguali a $0$. Il colore grigio indica che non esistono \acrshort{rfds} con l'attributo \texttt{YEAR} sul lato sinistro, con l'attributo \texttt{AUTHORS} sul lato destro, con cardinalit\`{a} uguale a $0$ o $1$ e thresholds dell'attributo \texttt{AUTHORS} comprese tra $0$ e $3$.
+
+\section{Valutazione sperimentale}
+
+\section{Sviluppi futuri}
+Lorem ipsum dolorsit amet.
