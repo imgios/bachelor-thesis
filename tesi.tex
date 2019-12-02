@@ -22,6 +22,9 @@
 % Invece per i PDF ho risolto così:
 % pdftk tesi.pdf background bozza.pdf output tesi_bozza.pdf
 %
+\renewcommand\lstlistingname{Algoritmo}
+\renewcommand\lstlistlistingname{Elenco degli algoritmi}
+\usepackage{float}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %   DOCUMENTO VERO E PROPRIO    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,6 +58,7 @@
 % SIMBOLI E NOTAZIONI %
 \include{frontmatter/simboli}
 \include{frontmatter/tabelle}
+\include{frontmatter/codici}
 % per aggiornarlo si deve eseguire da terminale:
 % makeindex -s myDoc.ist -t myDoc.glg -o myDoc.gls myDoc.glo
 % per inserire una voce nell'elenco:
@@ -73,6 +77,7 @@
 \include{capitoli/dipendenze_funzionali}
 \include{capitoli/visual_representation}
 \include{capitoli/dependensee}
+\include{capitoli/valutazione_sperimentale}
 \include{capitoli/conclusioni}
 %\part{Impatto ambientale}
 
